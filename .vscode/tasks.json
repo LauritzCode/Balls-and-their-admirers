@@ -1,0 +1,30 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Build game",
+      "type": "shell",
+      "command": "clang",
+      "args": [
+        "main.c",
+        "'@compile_flags.txt'",
+        "-lmsvcrt",
+        "-lraylib",
+        "-lgdi32",
+        "-lwinmm",
+        "-L../../raylib/lib",
+        "-Iinclude",
+        "-std=c17",
+        "-g",
+        "-o",
+        "game.exe"
+      ],
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "problemMatcher": ["$gcc"],
+      "detail": "Build project using clang with include path"
+    }
+  ]
+}
