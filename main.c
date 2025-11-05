@@ -1,11 +1,24 @@
 #include "../../raylib//include/raylib.h"
+#include "balls.h"
+#include "defines.h"
+#include "game.h"
 
 int main(void) {
-  InitWindow(1800, 900, "Raylib Test");
+  InitWindow(WIDTH, HEIGHT, TITLE);
+  SetTargetFPS(FPS);
+
+  game_init();
+  balls_init();
+
   while (!WindowShouldClose()) {
+
+    game_update();
+    balls_update();
+
     BeginDrawing();
     ClearBackground(RAYWHITE);
-    DrawText("Hello", 900, 450, 20, BLACK);
+    game_draw();
+    balls_draw();
     EndDrawing();
   }
   CloseWindow();
